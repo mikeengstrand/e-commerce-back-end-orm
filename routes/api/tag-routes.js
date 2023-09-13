@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Tag, Product, ProductTag } = require('../../models');
 
+
+// Hint: Be sure to look at the mini-project code for syntax help and use your model's column definitions to figure out what req.body will be for POST and PUT routes!
 // The `/api/tags` endpoint
 
 router.get('/', (req, res) => {
