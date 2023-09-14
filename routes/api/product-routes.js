@@ -2,9 +2,6 @@ const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
 
-
-// Hint: Be sure to look at the mini-project code for syntax help and use your model's column definitions to figure out what req.body will be for POST and PUT routes!
-
 // The `/api/products` endpoint
 
   // find all products
@@ -41,53 +38,8 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 
 // create new product
-// router.post('/', (req, res) => {
-//   /* req.body should look like this...
-//     {
-//       product_name: "Basketball",
-//       price: 200.00,
-//       stock: 3,
-//       tagIds: [1, 2, 3, 4]
-//     }
-//   */
-// const newProduct = {
-//   product_name: "",
-//       price: 30.99,
-//       stock: 10,
-//       tagIds: 1
-// }
-//   Product.create(newProduct)
-//     .then((product) => {
-//       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
-//       if (req.body.tagIds.length) {
-//         const productTagIdArr = newProduct.tagIds.map((tag_id) => {
-//           return {
-//             product_id: product.id,
-//             tag_id,
-//           };
-//         });
-//         return ProductTag.bulkCreate(productTagIdArr);
-//       }
-//       // if no product tags, just respond
-//       res.status(200).json(product);
-//     })
-//     .then((productTagIds) => res.status(200).json(productTagIds))
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(400).json(err);
-//     });
-// });
-
-// create new product
 router.post('/', (req, res) => {
-  /* req.body should look like this...
-    {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
-    }
-  */
+
   Product.create(req.body)
     .then((ProductData) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
@@ -109,9 +61,6 @@ router.post('/', (req, res) => {
       res.status(400).json(err);
     });
 });
-
-
-
 
 
 // update product

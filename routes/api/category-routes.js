@@ -1,14 +1,10 @@
 const router = require('express').Router();
 const { Category, Product } = require('../../models');
 
-
-// Hint: Be sure to look at the mini-project code for syntax help and use your model's column definitions to figure out what req.body will be for POST and PUT routes!
-
 // The `/api/categories` endpoint
 
 // find all categories
   // be sure to include its associated Products
-  // we did not get details on product from this
 router.get('/', async (req, res) => {
   try {
     const CategoryData = await Category.findAll({
