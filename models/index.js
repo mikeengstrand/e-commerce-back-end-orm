@@ -24,7 +24,7 @@ Product.belongsToMany(Tag, {
 });
 
 // Tags belongToMany Products (through ProductTag) prodct tag has foreigh key of tag_id
-Tag.belongsToMany(Products, {
+Tag.belongsToMany(Product, {
   through: {
     model: Product,
     model: ProductTag,
